@@ -12,6 +12,7 @@ export default function ThemeButton() {
 			lightTheme();
 		}
 	};
+	console.log("test")
 	return (
 		<label className="relative inline-flex items-center cursor-pointer">
 			<input
