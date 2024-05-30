@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import services from "../appwrite/Dbconfig";
+import services from "../appwrite/dbConfig";
 import { Container, PostCard } from "../components";
 
 const AllPost = () => {
@@ -18,7 +18,7 @@ const AllPost = () => {
         <div className="flex flex-wrap">
           {posts.map((post) => (
             <div className="p-2 w-1/4" key={post.$id}>
-              <PostCard key={posts.$id} post={post} />
+              <PostCard key={post.$id} post={post} />
             </div>
           ))}
         </div>

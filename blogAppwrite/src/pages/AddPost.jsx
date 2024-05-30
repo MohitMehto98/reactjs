@@ -9,5 +9,4 @@ const AddPost = () => {
     </div>
   );
 };
-import { Container } from "../components/index";
 export default AddPost;
