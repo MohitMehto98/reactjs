@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import { Signup as SignUpComponent } from "../components/index";
 const Signup = () => {
   return (
-    <div>Signup</div>
-  )
-}
+    <div className="py-8">
+      <SignUpComponent />
+    </div>
+  );
+};
 
-export default Signup
+export default Signup;
