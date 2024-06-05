@@ -50,7 +50,7 @@ export class Services {
 			throw error;
 		}
 	}
-	async getPost() {
+	async getPost(slug) {
 		try {
 			return await this.dataBase.getDocument(
 				config.appwriteDBID,
