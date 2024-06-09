@@ -13,26 +13,26 @@ export class Services {
 		this.storage = new Storage(this.client);
 	}
 
-	async createPost({ title, content, slug, featureImage, status, userId }) {
+	async createPost({ title, content, slug, featuredImage, status, userId }) {
 		try {
 			return await this.dataBase.createDocument(
 				config.appwriteDBID,
 				config.appwriteCollectionId,
 				slug,
-				{ title, content, featureImage, userId, status }
+				{ title, content, featuredImage, userId, status }
 			);
 		} catch (error) {
 			throw error;
 		}
 	}
 
-	async updataPost(slug, { title, content, featureImage, status }) {
+	async updatePost(slug, { title, content, featuredImage, status }) {
 		try {
 			return await this.dataBase.updateDocument(
 				config.appwriteDBID,
 				config.appwriteCollectionId,
 				slug,
-				{ title, content, featureImage, status }
+				{ title, content, featuredImage, status }
 			);
 		} catch (error) {
 			throw error;
@@ -63,8 +63,9 @@ export class Services {
 	}
 	async getPosts(queries = [Query.equal("status", "active")]) {
 		try {
-			await this.dataBase.getPosts.listDocuments(
-				config.appwriteDBID.config.appwriteCollectionId,
+			return await this.dataBase.listDocuments(
+				config.appwriteDBID,
+				config.appwriteCollectionId,
 				queries
 			);
 		} catch (error) {
@@ -98,6 +99,7 @@ export class Services {
 	}
 
 	getFilePreview(fileId) {
+		console.log(fileId);
 		try {
 			return this.storage.getFilePreview(config.appwriteBucketId, fileId);
 		} catch (error) {
